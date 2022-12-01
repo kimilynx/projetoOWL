@@ -7,6 +7,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import model.Adm;
 
 public class Menu extends JFrame{
    
@@ -21,7 +22,7 @@ public class Menu extends JFrame{
     private Font f4 = new Font("Century Gothic", Font.BOLD, 25);
     private Font f5 = new Font("Century Gothic", Font.BOLD, 20);
     private Font f6 = new Font("Century Gothic", Font.BOLD, 15);
-   
+    
     Menu(){
         frame = new JFrame();
         panel = new JPanel();

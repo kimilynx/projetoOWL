@@ -30,17 +30,37 @@ public class InsiraCodigo extends JFrame{
     private Font f2 = new Font("Century Gothic", Font.BOLD, 30);
     private Font f3 = new Font("Century Gothic", Font.BOLD, 20);
     private Font f4 = new Font("Century Gothic", Font.BOLD, 18);
+    private JTextField jtextfield;
+    private JLabel lbl1;
     
     InsiraCodigo(){
         setLayout(null);
         
         frame = new JFrame(); 
+        lbl1 = new JLabel("Insira seu código cadastrado");
+        lbl1.setBounds(500,370,500,50);
+        lbl1.setForeground(Color.WHITE);
+        lbl1.setFont(f2);
+        add(lbl1);
+        
+        jtextfield = new JTextField();
+        jtextfield.setFont(f3);
+        btnEnter = new JButton("Enter");
+        
+        btnEnter.setBounds(930,470,200,50);
+        btnEnter.setBorderPainted(false);
+        btnEnter.setContentAreaFilled(true);
+        btnEnter.setFocusPainted(false);
+        btnEnter.setFont(f3);
+        add(btnEnter);
+        
+        jtextfield.setBounds(300,470,620,50);
+        add(jtextfield);
         
         logo = new ImageIcon(this.getClass().getResource("logosemfundo300.png"));
         lbllogo = new JLabel(logo);
         lbllogo.setSize(800,800);
-        lbllogo.setBounds(520,5,825,30);
-        lbllogo.setLocation(300,0);
+        lbllogo.setBounds(300,50,825,300);
         add(lbllogo);
         
         frame.setResizable(false);

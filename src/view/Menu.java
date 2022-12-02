@@ -57,12 +57,20 @@ public class Menu extends JFrame implements ActionListener{
         btnCadastroAluno.setBorderPainted(false); 
         btnCadastroAluno.setContentAreaFilled(true); 
         btnCadastroAluno.setFocusPainted(false);
+        btnCadastroAluno.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                ClasseAluno aluno   = new ClasseAluno();
+                aluno.setVisible(true);
+                
+                
+            }
+        });
         
         btnCadastroFuncionario.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                ClasseAluno aluno = new ClasseAluno();
-                aluno.setVisible(true);
-                dispose();
+                ClasseFuncionario funcionario = new ClasseFuncionario();
+                funcionario.setVisible(true);
+                
                 
                 
             }
@@ -75,14 +83,6 @@ public class Menu extends JFrame implements ActionListener{
         btnCadastroFuncionario.setBorderPainted(false); 
         btnCadastroFuncionario.setContentAreaFilled(true); 
         btnCadastroFuncionario.setFocusPainted(false);
-        btnCadastroAluno.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                ClasseFuncionario funcionario   = new ClasseFuncionario();
-                funcionario.setVisible(true);
-                dispose();
-                
-            }
-        });
         
         add(btnCadastroFuncionario);
         
@@ -103,11 +103,9 @@ public class Menu extends JFrame implements ActionListener{
         
     }
 
-    @Override
     public void actionPerformed(ActionEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        
     }
-
 }
 
     

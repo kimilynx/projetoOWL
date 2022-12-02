@@ -10,6 +10,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import model.Funcionario;
 
@@ -29,9 +31,17 @@ public class FuncionarioDAO {
         return conn;
     }
 
+    public void closeConn() {
+        try {
+            conn.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(FuncionarioDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
     public void cadastrarFuncionario(Funcionario funcObjeto) throws SQLException {
 
-        String sql = "insert into Aluno (nome, cpf, email) values (?, ?, ?)";
+        String sql = "insert into Funcionario (nome, cpf, email) values (?, ?, ?)";
 
         PreparedStatement pstm;
 
@@ -53,8 +63,8 @@ public class FuncionarioDAO {
         }
     }
 
-    public List<Funcionario> listAdm() throws SQLException {
-        String sql = "SELECT * FROM Aluno";
+    public List<Funcionario> listFunc() throws SQLException {
+        String sql = "SELECT * FROM Funcionario";
 
         PreparedStatement stmt = null;
         ResultSet rs = null;
@@ -79,4 +89,58 @@ public class FuncionarioDAO {
         }
         return funcionarios;
     }
+
+    public boolean deleFunc(Funcionario funcionario) throws SQLException {
+
+        String sql = "DELETE FROM Funcionario where nome = (?) and cpf= (?)";
+
+        PreparedStatement stmt = null;
+
+        try {
+            stmt = getConn().prepareStatement(sql);
+
+            stmt.setString(1, funcionario.getNomeFunc());
+            stmt.setString(2, funcionario.getCpfFun());
+
+            stmt.executeUpdate();
+
+            return true;
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Erro ao deletar funcionario" + ex, "Banco de dados", JOptionPane.WARNING_MESSAGE);
+
+            return false;
+        } finally {
+            closeConn();
+        }
+
+    }
+
+    public boolean updateFunc(Funcionario antigo, Funcionario novo) {
+        String sql = "UPDATE Funcionario SET nome= (?), cpf = (?), email = (?) where email = (?)";
+
+        PreparedStatement stmt = null;
+
+        try {
+            stmt = getConn().prepareCall(sql);
+
+            stmt.setString(1, novo.getNomeFunc());
+            stmt.setString(2, novo.getCpfFun());
+            stmt.setString(3, novo.getEmailFunc());
+
+            stmt.setString(4, antigo.getEmailFunc());
+
+            stmt.executeUpdate();
+
+            return true;
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Erro na alteração de Funcionario\n" + ex, "Error", 0);
+            return false;
+        } finally {
+
+            closeConn();
+
+        }
+
+    }
+
 }

@@ -10,8 +10,7 @@ public class Funcionario {
     public Funcionario() {
     }
 
-    public Funcionario(int id, String nomeFunc, String emailFunc, String cpfFun) {
-        this.id = id;
+    public Funcionario(String nomeFunc, String emailFunc, String cpfFun) {
         this.nomeFunc = nomeFunc;
         this.emailFunc = emailFunc;
         this.cpfFun = cpfFun;

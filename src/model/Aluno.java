@@ -6,24 +6,16 @@ public class Aluno {
     private String nomeAluno;
     private String matriculaAluno;
     private String curso;
-    private String Turma;
+    private String turma;
 
     public Aluno() {
     }
 
-    public Aluno(int id, String nomeAluno, String matriculaAluno, String curso, String turma) {
-        this.id = id;
+    public Aluno(String matriculaAluno, String nomeAluno, String curso, String turma) {
         this.nomeAluno = nomeAluno;
         this.matriculaAluno = matriculaAluno;
         this.curso = curso;
-    }
-
-    public String getTurma() {
-        return Turma;
-    }
-
-    public void setTurma(String Turma) {
-        this.Turma = Turma;
+        this.turma = turma;
     }
 
     public int getId() {
@@ -56,6 +48,14 @@ public class Aluno {
 
     public void setCurso(String curso) {
         this.curso = curso;
+    }
+
+    public String getTurma() {
+        return turma;
+    }
+
+    public void setTurma(String turma) {
+        this.turma = turma;
     }
 
 }

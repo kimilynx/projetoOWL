@@ -172,7 +172,7 @@ public class ClasseFuncionario extends JFrame {
         setTitle("Menu");
         setSize(1000, 600);
         setBackground(new Color(33, 71, 82));
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setVisible(true);
         setLocationRelativeTo(null);
 

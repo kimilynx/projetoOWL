@@ -6,15 +6,24 @@ public class Aluno {
     private String nomeAluno;
     private String matriculaAluno;
     private String curso;
+    private String Turma;
 
     public Aluno() {
     }
 
-    public Aluno(int id, String nomeAluno, String matriculaAluno, String curso) {
+    public Aluno(int id, String nomeAluno, String matriculaAluno, String curso, String turma) {
         this.id = id;
         this.nomeAluno = nomeAluno;
         this.matriculaAluno = matriculaAluno;
         this.curso = curso;
+    }
+
+    public String getTurma() {
+        return Turma;
+    }
+
+    public void setTurma(String Turma) {
+        this.Turma = Turma;
     }
 
     public int getId() {

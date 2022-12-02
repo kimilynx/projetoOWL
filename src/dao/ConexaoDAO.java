@@ -10,9 +10,9 @@ import javax.swing.JOptionPane;
 public class ConexaoDAO {
     
     private static final String DRIVER = "com.mysql.cj.jdbc.Driver";
-    private static final String URL = "jdbc:mysql://localhost:3306/registro?useTimezone=true&serverTimezone";
+    private static final String URL = "jdbc:mysql://localhost:3306/registro?useTimezone=true&serverTimezone=UTC";
     private static final String USER = "root";
-    private static final String PASS = "studyaplus";
+    private static final String PASS = "boneka28";
     
     public static Connection conectaBD(){
         Connection conn = null;

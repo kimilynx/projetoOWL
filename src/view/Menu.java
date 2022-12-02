@@ -1,48 +1,113 @@
 package view;
 
 import java.awt.Color;
+import java.awt.FlowLayout;
 import java.awt.Font;
+import static java.awt.Frame.MAXIMIZED_BOTH;
+import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.net.URL;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import model.Adm;
+import javax.swing.JTextField;
 
-public class Menu extends JFrame{
-   
+public class Menu extends JFrame implements ActionListener{
+    
+    private ImageIcon img;
+    private ImageIcon logo;
+    private JPanel panel = new JPanel();
+    private JLabel lbllogo;
+    private JLabel lblfundo;
     private JFrame frame;
-    private JPanel panel,panel2;
-    private ImageIcon img,img2;
-    private JLabel lblimg,lblfundo2;
-    private JButton btnCadastrar;
+    private JLabel lbltext;
     private Font f = new Font("Century Gothic", Font.BOLD, 50);
-    private Font f2 = new Font("Century Gothic", Font.PLAIN, 30);
-    private Font f3 = new Font("Century Gothic", Font.BOLD, 35);
-    private Font f4 = new Font("Century Gothic", Font.BOLD, 25);
-    private Font f5 = new Font("Century Gothic", Font.BOLD, 20);
-    private Font f6 = new Font("Century Gothic", Font.BOLD, 15);
+    private Font f2 = new Font("Century Gothic", Font.BOLD, 30);
+    private Font f3 = new Font("Century Gothic", Font.BOLD, 20);
+    private Font f4 = new Font("Century Gothic", Font.BOLD, 18);
+    private JButton btnCadastroAluno, btnCadastroFuncionario;
     
     Menu(){
+        setLayout(null);
+        
         frame = new JFrame();
-        panel = new JPanel();
-        panel2 = new JPanel();
-        lblimg  = new JLabel();
-       
-        ImageIcon img2 = new ImageIcon(this.getClass().getResource("fundoOWL.jpg"));
-        lblfundo2 = new JLabel(img);
-        lblfundo2.setSize(1366,768);
+        btnCadastroAluno = new JButton("CADASTRAR ALUNO");
+        btnCadastroFuncionario = new JButton("CADASTRAR FUNCIONÁRIO");
+        
+        
+        logo = new ImageIcon(this.getClass().getResource("logosemfundo300.png"));
+        lbllogo = new JLabel(logo);
+        lbllogo.setSize(800,800);
+        lbllogo.setBounds(520,5,810,400);
+        lbllogo.setLocation(300,0);
+        add(lbllogo);
+        
         frame.setResizable(false);
-       
+        
+        img = new ImageIcon(this.getClass().getResource("fundoOWL.jpg"));
+        lblfundo = new JLabel(img);
+        lblfundo.setSize(1366,768);
+        frame.setResizable(false);
+        
+        btnCadastroAluno.setFont(f3);
+        btnCadastroAluno.setBounds(350,520,300,50);
+        btnCadastroAluno.setBorderPainted(false); 
+        btnCadastroAluno.setContentAreaFilled(true); 
+        btnCadastroAluno.setFocusPainted(false);
+        
+        btnCadastroFuncionario.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                ClasseAluno aluno = new ClasseAluno();
+                aluno.setVisible(true);
+                dispose();
+                
+                
+            }
+        });
+        
+        add(btnCadastroAluno);
+        
+        btnCadastroFuncionario.setFont(f3);
+        btnCadastroFuncionario.setBounds(750,520,300,50);
+        btnCadastroFuncionario.setBorderPainted(false); 
+        btnCadastroFuncionario.setContentAreaFilled(true); 
+        btnCadastroFuncionario.setFocusPainted(false);
+        btnCadastroAluno.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                ClasseFuncionario funcionario   = new ClasseFuncionario();
+                funcionario.setVisible(true);
+                dispose();
+                
+            }
+        });
+        
+        add(btnCadastroFuncionario);
+        
         setTitle("Menu");
         setSize(1366, 768);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
         setLocationRelativeTo(null);
+        
+        add(panel);
+        add(lbllogo);
+        add(lblfundo);
+        
     }
-   
+    
     public static void main(String[] args) {
-        new Menu();
+        new Menu().setExtendedState(MAXIMIZED_BOTH);
+        
     }
-   
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
 }
+
+    

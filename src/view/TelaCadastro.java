@@ -69,6 +69,7 @@ public class TelaCadastro extends JFrame implements ActionListener {
                 adm.setSenha_adm(senha);
                 try {
                     dao.cadastrarAdm(adm);
+                    new TelaMenu().setVisible(true);
                     dao.closeConn();
                     JOptionPane.showMessageDialog(null, "Administrador cadastrado com sucesso!", "SistemaOWL", JOptionPane.INFORMATION_MESSAGE);
                 } catch (SQLException ex) {

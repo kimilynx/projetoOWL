@@ -128,7 +128,7 @@ public class TelaMenu extends JFrame {
     }
 
     public static void main(String[] args) {
-        new TelaMenu().setExtendedState(MAXIMIZED_BOTH);;
+        new TelaMenu().setVisible(true);
 
     }
 }
